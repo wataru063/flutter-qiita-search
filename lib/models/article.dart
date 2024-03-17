@@ -1,4 +1,4 @@
-import 'package:qiita_research/lib/models/user.dart'
+import 'package:qiita_search/models/user.dart';
 
 class Article {
   Article({

@@ -35,7 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
     });
     if (res.statusCode == 200) {
       // 3. 戻り値をArticleクラスの配列に変換
-      final List<dynamic> body = jsonDecode(res.body)
+      final List<dynamic> body = jsonDecode(res.body);
       // 4. 変換したArticleクラスの配列を返す(returnする)
       return body.map((dynamic json) => Article.fromJson(json)).toList();
     } else {
