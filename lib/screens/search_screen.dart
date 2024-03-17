@@ -12,13 +12,37 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  List<Article> articles = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Qiita Search'),
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 12,
+              horizontal: 36
+            ),
+            child: TextField(
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+              ),
+              decoration: const InputDecoration(
+                hintText: '検索ワードを入力してください'
+              ),
+              onSubmitted: (String value) async {
+                final results = await searchQiita(value);
+                setState(()=> articles = results);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
